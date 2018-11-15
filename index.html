@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="toDoList" ng-cloak>
+	<head>
+		<meta charset="utf-8">
+		<title>To do list of comments </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Angular Library -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+
+		<!-- Angular Material Library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+		<!-- Angular Material style sheet -->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+
+		<!-- Angular Material requires Angular.js Libraries -->
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-animate.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-aria.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-messages.min.js"></script>
+
+	  <!-- Angular Material icons -->
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link rel="icon" type="image/x-icon" href="src/favicon.ico">  
+
+		<link rel="stylesheet" href="src/styles.css">
+		<script src="src/app.js"></script>
+		<script src="src/app/home/home.js"></script>
+
+	</head>
+  <body ng-controller="listComments">
+		<div id="listCommentsForms">
+			<h1>The first flight before the project WKL-GLA</h1>
+			<form name="frm">
+				<md-input-container class="md-input-has-placeholder md-input-has-value">
+					<label>User:</label>
+					<input type="text" name="newUser" ng-model="newUser" placeholder="Write your name" required>
+				</md-input-container>
+				<md-input-container class="md-input-has-placeholder">
+					<label>Comment:</label>
+					<textarea type="text" name="newComment" ng-model="newComment" placeholder="Write your comment" required></textarea>
+				</md-input-container>
+				<md-button class="md-raised md-primary" ng-click="addComment()" ng-disabled="frm.$invalid" ng-if="hideButtonAdd">Add comment</md-button>
+				<md-button class="md-raised md-primary" ng-click="saveComment()" ng-if="hideButtonSave">Save comment</md-button>
+				<md-button class="md-raised md-primary" ng-click="deleteComments()">Remove comments</md-button>
+				<md-button class="md-raised md-primary" ng-click="showRemovedComments()">Archieved</md-button>
+			</form>
+		</div>
+		<div id="listComments">
+			<ul>
+  			<li ng-repeat="comment in comments">
+  				<md-checkbox ng-model="comment.done" aria-label="taskType"></md-checkbox>
+  				<span ng-class="{'done': comment.done}">{{comment.name}}</span>
+  				<span ng-class="{'done': comment.done}">left the following comment: {{comment.comment}},</span>
+  				<span ng-class="{'done': comment.done}">created {{comment.createDate}}</span>
+          <md-button class="md-icon-button">
+          	<md-icon alt="edit comment" ng-click="editComment(comment.name, comment.comment)">edit</md-icon>
+          </md-button>
+          <md-button class="md-icon-button">
+          	<md-icon alt="delete commet" ng-click="deleteComment(comment)">delete</md-icon>
+          </md-button>
+  			</li>
+			</ul>
+		</div>	
+  </body>
+</html>
