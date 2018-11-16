@@ -38,6 +38,10 @@ angular
 					break;
 				}
 			}
+
+			$scope.hideButtonAdd = true;
+			$scope.hideButtonSave = false;
+			
 			$scope.newUser = "";
 			$scope.newComment = "";
 		}
@@ -50,11 +54,12 @@ angular
 			$scope.hideButtonSave = true;
 		}
 
-		$scope.deleteComment = comment =>	$scope.comments.splice($scope.comments.indexOf(comment), 1);
-
-		$scope.deleteComments = () => {
+		$scope.deleteComment = comment =>	{
+			$scope.comments[$scope.comments.indexOf(comment)].done = true;			
 			$scope.comments = listComments.filter( comment => !comment.done );
 		}
+
+		$scope.deleteComments = () => $scope.comments = listComments.filter( comment => !comment.done );
 
 		$scope.showComments = () => {
 			$scope.comments = listComments.filter( comment => !comment.done );
