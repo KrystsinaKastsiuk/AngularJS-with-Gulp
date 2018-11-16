@@ -35,11 +35,11 @@
 			<form name="frm">
 				<md-input-container class="md-input-has-placeholder">
 					<label>User:</label>
-					<input type="text" name="newUser" ng-model="newUser" placeholder="Write your name" required>
+					<input type="text" name="tempUser" ng-model="tempComment.name" placeholder="Write your name" required>
 				</md-input-container>
 				<md-input-container class="md-input-has-placeholder">
 					<label>Comment:</label>
-					<textarea type="text" name="newComment" ng-model="newComment" placeholder="Write your comment" required></textarea>
+					<textarea type="text" name="tempComment" ng-model="tempComment.comment" placeholder="Write your comment" required></textarea>
 				</md-input-container>
 				<md-button class="md-raised md-primary" ng-click="addComment()" ng-disabled="frm.$invalid" ng-if="hideButtonAdd">Add comment</md-button>
 				<md-button class="md-raised md-primary" ng-click="saveComment()" ng-if="hideButtonSave">Save comment</md-button>
@@ -50,16 +50,16 @@
 		</div>
 		<div id="listComments">
 			<ul>
-  			<li ng-repeat="comment in comments">
+  			<li ng-repeat="comment in comments track by $index">
   				<md-checkbox ng-model="comment.done" aria-label="taskType"></md-checkbox>
   				<span ng-class="{'done': comment.done}">{{comment.name}}</span>
   				<span ng-class="{'done': comment.done}">left the following comment: {{comment.comment}},</span>
   				<span ng-class="{'done': comment.done}">created {{comment.createDate}}</span>
           <md-button class="md-icon-button">
-          	<md-icon alt="edit comment" ng-click="editComment(comment.name, comment.comment)">edit</md-icon>
+          	<md-icon alt="edit comment" ng-click="editComment(comment)">edit</md-icon>
           </md-button>
           <md-button class="md-icon-button">
-          	<md-icon alt="delete commet" ng-click="deleteComment(comment)">delete</md-icon>
+          	<md-icon alt="delete comment" ng-click="deleteComment(comment)">delete</md-icon>
           </md-button>
   			</li>
 			</ul>
