@@ -43,8 +43,9 @@
 				</md-input-container>
 				<md-button class="md-raised md-primary" ng-click="addComment()" ng-disabled="frm.$invalid" ng-if="hideButtonAdd">Add comment</md-button>
 				<md-button class="md-raised md-primary" ng-click="saveComment()" ng-if="hideButtonSave">Save comment</md-button>
-				<md-button class="md-raised md-primary" ng-click="deleteComments()">Remove comments</md-button>
-				<md-button class="md-raised md-primary" ng-click="showRemovedComments()">Archieved</md-button>
+				<md-button class="md-raised md-primary" ng-if="hideButtonRemove" ng-click="deleteComments()">Remove comments</md-button>
+				<md-button class="md-raised md-primary" ng-if="hideButtonShow" ng-click="showComments()">Show comments</md-button>
+				<md-button class="md-raised md-primary" ng-click="archived()">Archived</md-button>
 			</form>
 		</div>
 		<div id="listComments">
