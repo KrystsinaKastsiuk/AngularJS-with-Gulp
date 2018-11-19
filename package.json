@@ -1,0 +1,28 @@
+{
+  "name": "to-do-list",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve"
+  },
+  "author": "Krystsina Kastsiuk",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-connect": "^5.6.1",
+    "gulp-webserver": "^0.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KrystsinaKastsiuk/AngularJS-with-Gulp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KrystsinaKastsiuk/AngularJS-with-Gulp/issues"
+  },
+  "homepage": "https://github.com/KrystsinaKastsiuk/AngularJS-with-Gulp#readme"
+}
