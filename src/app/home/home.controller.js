@@ -24,7 +24,7 @@
 				
 				$scope.comments = JSON.parse(localStorage.getItem('listComments')).slice();
 				this.comments = $scope.comments;
-				
+
 				$scope.form = {};
 				this.form = $scope.form;
 			}
@@ -59,14 +59,14 @@
 			}
 
 			saveComment() {
-				this.comments.forEach( (item, i, arr) => {
-					if (item.id === this.activeComment.id) {
-						item.name = this.activeComment.name;
-						item.comment = this.activeComment.comment;
-						item.changeDate = new Date().toLocaleDateString('ru-RU');
-						localStorage.setItem('listComments', JSON.stringify(this.comments));
-					}
-				});
+				let editedComment = this.comments.find(item => item.id === this.activeComment.id);
+
+				if (this.comments) {
+					editedComment.name = this.activeComment.name;
+					editedComment.comment = this.activeComment.comment;
+					editedComment.changeDate = new Date().toLocaleDateString('ru-RU');
+					localStorage.setItem('listComments', JSON.stringify(this.comments));
+				}
 	
 				this.hideButtonAdd = true;
 				this.hideButtonSave = false;

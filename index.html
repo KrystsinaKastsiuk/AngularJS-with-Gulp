@@ -39,7 +39,7 @@
 				<md-input-container class="md-input-has-placeholder">
 					<label>Login:</label>
 					<input id="text" name="user" ng-model="ctrl.activeComment.name" placeholder="Write your name" ng-minlength="3" required>
-					<div ng-messages="frm.user.$error">
+					<div ng-messages="form.frm.user.$error">
 						<div ng-message="required">You did not enter a field</div>
 						<div ng-message="minlength">Your field is too short</div>
 					</div>
@@ -47,7 +47,7 @@
 				<md-input-container class="md-input-has-placeholder">
 					<label>Comment:</label>
 					<textarea id="text" name="comment" ng-model="ctrl.activeComment.comment" placeholder="Write your comment" ng-minlength="5" required></textarea>
-					<div ng-messages="frm.comment.$error">
+					<div ng-messages="form.frm.comment.$error">
 						<div ng-message="required">You did not enter a field</div>
 						<div ng-message="minlength">Your field is too short</div>
 					</div>
@@ -71,7 +71,7 @@
 				</td>
 				<td><span ng-class="{'done': comment.done}">{{comment.name}}</span></td>
 				<td><span ng-class="{'done': comment.done}">left the following comment: {{comment.comment}},</span></td>
-				<td><span ng-class="{'done': comment.done}">created {{comment.createDate}}</span></td>
+				<td><span ng-class="{'done': comment.done}">changed {{comment.changeDate}}</span></td>
 				<td>
 				<md-button class="md-icon-button">
 					<md-icon alt="edit comment" ng-click="ctrl.editComment(comment)">edit</md-icon>
