@@ -4,8 +4,6 @@
 		class listComments {
 			constructor(dataService, $scope) {
 				dataService.getData().then(function(response) { console.log(response) });
-
-				let self = this;
 	
 				this.hideButtonAdd = true;
 				this.hideButtonSave = false;
@@ -26,6 +24,7 @@
 				
 				$scope.comments = JSON.parse(localStorage.getItem('listComments')).slice();
 				this.comments = $scope.comments;
+				
 				$scope.form = {};
 				this.form = $scope.form;
 			}
