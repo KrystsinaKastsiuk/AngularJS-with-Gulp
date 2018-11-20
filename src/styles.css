@@ -1,6 +1,6 @@
 #listCommentsForms {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 #listCommentsForms form {
@@ -10,7 +10,7 @@
 
 #listComments {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 #listComments ul {
@@ -21,4 +21,10 @@
 .done {
 	text-decoration: line-through;
 	color: #ccc;
+}
+
+.button {
+  min-width: 40px;
+  background-color: rgba(128, 128, 128, 0.141);
+  border-radius: 50px;
 }
